@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "library(wholebrain)\n\n\nmyfilter<-structure(list(alim = c(0, 118), #area limits of soma size\n                         threshold.range = c(7431L, 31416L), #this is the threshold range to look for speckles\n                         eccentricity = 1000L,#eccentricity allowed 1000 max\n                         Max = 13512, #display range Maximum value for 8-bit rendered\n                         Min = 0, #display range Minimum value for 8-bit rendered\n                         brain.threshold = 2364L, #threshold to find brain contour\n                         resize = 0.04, #resize parameter to match atlas size to pixel size\n                         blur = 6L, #blur of brain outline\n                         downsample = 0.25), #donwample factor to increase processing speed\n                    .Names = c(\"alim\", \"threshold.range\", \"eccentricity\", \"Max\", \"Min\", \"brain.threshold\",\n                                                         \"resize\", \"blur\", \"downsample\"))\n\n#image file to analyze\nimages<-get.images('./images')\n\n#segment speckles press ESC to continue\nseg<-segment(images, filter=myfilter)\n\n#registration\ncoord<-0.5 #mm from bregma AP\nregi<-registration(images, filter=myfilter, coordinate=0.5)\n\n#get final spreadsheet\ndataset<-inspect.registration(regi, seg, forward.warps = TRUE)\n\n#save all info so we can reproduce it.\nsave(images, seg, regi, dataset, file='radioactivity.RData')\n\n#plot 3D brain\nglassbrain(dataset)\n\n#make schematic plot\nschematic.plot(dataset)\n\n#get regions sorted according to intensity\nmean.intensity<-tapply(dataset$intensity, dataset$acronym, mean)\n#sort them\nmean.intensity<-sort(mean.intensity, decreasing= TRUE)\n#print a table with acronym and name\noutputdata<-data.frame(parent.name = name.from.acronym(get.acronym.parent(names(mean.intensity))), parent.acronym =  get.acronym.parent(names(mean.intensity)), name = name.from.acronym(names(mean.intensity)), acronym = names(mean.intensity), intensity = mean.intensity)\n#write to spreadsheet file\nwrite.csv(outputdata, file = \"radioactivity_sorted_by_region.csv\", row.names=FALSE)\n\n#make a webmap into current project folder\npixel.resolution<-1 #1 micron\nmakewebmap(img = images, filter = myfilter, registration = regi, dataset = dataset, \n           scale = 0.64, fluorophore = \"Radioactivity\")",
+    "created" : 1518797870978.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1049230511",
+    "id" : "B843ADF8",
+    "lastKnownWriteTime" : 1518810678,
+    "last_content_update" : 1518810678391,
+    "path" : "~/Documents/GitHub/wholebrain-examples/autoradiography/analysis_script.R",
+    "project_path" : "analysis_script.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
