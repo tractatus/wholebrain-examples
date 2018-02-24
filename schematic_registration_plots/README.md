@@ -11,6 +11,25 @@ Then open `main_script.R`.
 load(file='regi_dataset.RData')
 ```
 
+### Plot schematic steroetactic atlas plate with your data.
+
+```R
+#tryout the schematic plot function
+schematic.plot(dataset)
+```
+<img src="repo_images/schematic_plot01.png?raw=true" width="60%" alt="Output from schematic.plot(dataset)">
+
+_**Figure 1** Output from `schematic.plot(dataset)`._
+
+```R
+#make schematic plot without, title, without millimeter grid and with a 1 mm scale bar.
+schematic.plot(dataset, title = FALSE, mm.grid = FALSE, scale.bar = TRUE)
+```
+<img src="repo_images/schematic_plot02.png?raw=true" width="60%" alt="Output from schematic.plot(dataset, title = FALSE, mm.grid = FALSE, scale.bar = TRUE)">
+
+_**Figure 1** Output from `schematic.plot(dataset, title = FALSE, mm.grid = FALSE, scale.bar = TRUE)`._
+
+
 ### Plot registration overlay on micrograph raster image.
 
 ```R
@@ -19,7 +38,7 @@ plot.registration(regi)
 ```
 <img src="repo_images/plot_registration01.png?raw=true" width="60%" alt="Output from plot.registration(regi)">
 
-_**Figure 1** Output from `plot.registration(regi)`._
+_**Figure 3** Output from `plot.registration(regi)`._
 
 We can change some input parameters to customize the output:
 
@@ -31,7 +50,7 @@ plot.registration(regi, border = 'orange', draw.trans.grid = TRUE, grid.color = 
 
 <img src="repo_images/plot_registration02.png?raw=true" width="60%" alt="Output from plot.registration(regi, border = 'orange', draw.trans.grid = TRUE, grid.color = 'purple')">
 
-_**Figure 2** Output from `plot.registration(regi, border = 'orange', draw.trans.grid = TRUE, grid.color = 'purple')`._**_
+_**Figure 4** Output from `plot.registration(regi, border = 'orange', draw.trans.grid = TRUE, grid.color = 'purple')`._**_
 
 ### Plot outlines of the registration from the tissue.
 
@@ -44,7 +63,8 @@ plot.outlines(regi, plot = TRUE)
 points(dataset$x, dataset$y, pch = 16, col = dataset$color)
 ```
 <img src="repo_images/plot_outlines01.png?raw=true" width="60%" alt="Output from `plot.outlines(regi, plot = TRUE)">
-_**Figure 3** Output from `plot.outlines(regi, plot = TRUE)`._**_
+
+_**Figure 5** Output from `plot.outlines(regi, plot = TRUE)`._**_
 
 Lets customize this so we can display the fluorescent intensity of each cell body by using `heat.colors()` color palette ramp.
 ```R
@@ -54,4 +74,7 @@ plot.outlines(regi, plot = TRUE)
 points(dataset$x, dataset$y, pch = 16, col = color)
 ```
 <img src="repo_images/plot_outlines02.png?raw=true" width="60%" alt="Output from `plot.outlines(regi, plot = TRUE)">
-_**Figure 3** Output from `plot.outlines(regi, plot = TRUE) using color ramp to display neuron luorescent intensity`._**_
+
+_**Figure 6** Output from `plot.outlines(regi, plot = TRUE) using color ramp to display neuron fluorescent intensity`._**_
+
+
