@@ -18,6 +18,8 @@ load(file='regi_dataset.RData')
 plot.registration(regi)
 ```
 
+<img src="repo_images/plot_outlines01.png?raw=true" width="100">
+
 ![Output from plot.registration(regi)](repo_images/plot_outlines01.png?raw=true "plot.registration(regi)" | width=100)
 **Figure 1 Output from `plot.registration(regi)`.**
 
