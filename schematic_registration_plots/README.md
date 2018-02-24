@@ -18,7 +18,7 @@ load(file='regi_dataset.RData')
 plot.registration(regi)
 ```
 
-![Alt text](wholebrain-examples/schematic_registration_plots/repo_images/plot_outlines01.png?raw=true "plot.registration(regi)")
+![Output from plot.registration(regi)](repo_images/plot_outlines01.png?raw=true "plot.registration(regi)")
 
 We can change some input parameters to customize the output:
 
