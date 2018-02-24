@@ -11,8 +11,9 @@ Then open `main_script.R`.
 load(file='regi_dataset.RData')
 ```
 
-### Plot schematic steroetactic atlas plate with your data.
+### Plot schematic stereotactic atlas plate with your data.
 
+Lets begin with simply plotting the segmented data points form the `dataset` object into stereotactic coordinates.
 ```R
 #tryout the schematic plot function
 schematic.plot(dataset)
@@ -21,6 +22,7 @@ schematic.plot(dataset)
 
 _**Figure 1** Output from `schematic.plot(dataset)`._
 
+Lets customize the output and remove the text and grids and add a one millimeter scale bar.
 ```R
 #make schematic plot without, title, without millimeter grid and with a 1 mm scale bar.
 schematic.plot(dataset, title = FALSE, mm.grid = FALSE, scale.bar = TRUE)
