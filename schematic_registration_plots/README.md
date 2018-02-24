@@ -17,8 +17,8 @@ load(file='regi_dataset.RData')
 #tryout the plot.registration() function
 plot.registration(regi)
 ```
+<img src="repo_images/plot_registration01.png?raw=true" width="60%" alt="Output from plot.registration(regi)">
 
-<img src="repo_images/plot_registration01.png?raw=true" width="75%" alt="Output from plot.registration(regi)">
 **Figure 1 Output from `plot.registration(regi)`.**
 
 We can change some input parameters to customize the output:
@@ -28,3 +28,7 @@ We can change some input parameters to customize the output:
 par(bg='black')
 plot.registration(regi, border = 'orange', draw.trans.grid = TRUE, grid.color = 'purple')
 ```
+
+<img src="repo_images/plot_registration02.png?raw=true" width="60%" alt="Output from plot.registration(regi, border = 'orange', draw.trans.grid = TRUE, grid.color = 'purple')">
+
+**Figure 2 Output from `plot.registration(regi, border = 'orange', draw.trans.grid = TRUE, grid.color = 'purple')`.**
