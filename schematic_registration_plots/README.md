@@ -18,7 +18,7 @@ load(file='regi_dataset.RData')
 plot.registration(regi)
 ```
 
-<img src="repo_images/plot_registration01.png?raw=true" width="300" alt="Output from plot.registration(regi)">
+<img src="repo_images/plot_registration01.png?raw=true" width="50%" alt="Output from plot.registration(regi)">
 **Figure 1 Output from `plot.registration(regi)`.**
 
 We can change some input parameters to customize the output:
