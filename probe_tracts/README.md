@@ -81,3 +81,29 @@ lines(sites, col = rep(c('red', 'green'), each=2), coord.sys = 'pixel', length =
 <img src="repo_images/fluorescence.png?raw=true" width="80%" alt="Output from schematic.plot(dataset)">
 
 _**Figure 2** Output from `plot.registration(regi)` with `draw.blobs(red)` and `draw.blobs(green)`._
+
+### Plot 3D brain
+```R
+perspective<-list(FOV = 30, 
+                  ignoreExtent = FALSE, 
+                  listeners = 1L, 
+                  mouseMode = structure(c("trackball", "zoom", "fov", "pull"
+                  ), .Names = c("left", "right", "middle", "wheel")), 
+                  skipRedraw = FALSE, 
+                  userMatrix = structure(c(0.620774269104004, 0.410500437021255, 
+                                           -0.667928755283356, 0, -0.0296718962490559, -0.839048981666565, 
+                                           -0.543246030807495, 0, -0.783427774906158, 0.357052087783813, 
+                                           -0.508679509162903, 0, 0, 0, 0, 1), 
+                                         .Dim = c(4L, 4L)), scale = c(1,  1, 1), 
+                  viewport = structure(c(0L, 0L, 1280L, 720L), .Names = c("x", "y", "width", "height")), 
+                  zoom = 1, windowRect = c(0L, 45L,  1280L, 765L), 
+                  family = "sans", font = 1L, cex = 1, useFreeType = TRUE)
+                                                                                 
+glassbrain(dataset, col = dataset$type, cex = 3, spheres = TRUE, device=TRUE, high.res = TRUE)
+par3d(perspective)
+tracts3d(sites, color = rep(c('red', 'green'), each=4), lwd = 3)
+```
+
+<img src="repo_images/3Dbrain.png?raw=true" width="80%" alt="Output from schematic.plot(dataset)">
+_**Figure 3** Output from `glassbrain(dataset)` with `tracts3d(sites)` ._
+
