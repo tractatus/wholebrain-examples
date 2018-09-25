@@ -68,3 +68,16 @@ lines(sites, col = rep(c('red', 'green'), each=2), coord.sys = 'stereo', length 
 <img src="repo_images/schematic.png?raw=true" width="60%" alt="Output from schematic.plot(dataset)">
 
 _**Figure 1** Output from `schematic.plot(dataset)` with lines on `sites` probe.paths object._
+
+### Plot probe fluorescence and paths on original image with registration
+
+```R
+plot.registration(regi, border = 'lightblue')
+draw.blobs(red)
+draw.blobs(green, col = rgb(0,1,0.1, alpha = 0.5), border ='green3')
+lines(sites, col = rep(c('red', 'green'), each=2), coord.sys = 'pixel', length =0.1, lwd = 2)
+```
+
+<img src="repo_images/fluorescence.png?raw=true" width="80%" alt="Output from schematic.plot(dataset)">
+
+_**Figure 2** Output from `plot.registration(regi)` with `draw.blobs(red)` and `draw.blobs(green)`._
