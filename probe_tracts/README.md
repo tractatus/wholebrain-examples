@@ -36,9 +36,9 @@ brain.filter<-structure(list(alim = c(500, 10000), threshold.range = c(2000L,
 ### Segment contours and perform registration
 
 ```R
-myimage<-'/Users/danielfurth/Desktop/injection.tif'
-red<- segment(myimage, channel = 1, filter = myfilter, get.contour = TRUE)
-green<- segment(myimage, channel = 2, filter = myfilter, get.contour = TRUE)
+myimage<-'./images/probes.tif'
+red<- segment(myimage, channel = 1, filter = red.filter, get.contour = TRUE)
+green<- segment(myimage, channel = 2, filter = green.filter, get.contour = TRUE)
 brain<- segment(myimage, channel = 3, filter = brain.filter)
 
 #registration
@@ -105,5 +105,6 @@ tracts3d(sites, color = rep(c('red', 'green'), each=4), lwd = 3)
 ```
 
 <img src="repo_images/3Dbrain.png?raw=true" width="80%" alt="Output from schematic.plot(dataset)">
+
 _**Figure 3** Output from `glassbrain(dataset)` with `tracts3d(sites)` ._
 
